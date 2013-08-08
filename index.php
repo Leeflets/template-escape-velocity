@@ -202,35 +202,11 @@
 										<div class="row">
 											<div class="6u">
 
-												<!-- Contact Form -->
-													<section class="footer-one">
-														<form method="post" action="#">
-															<div>
-																<div class="row half">
-																	<div class="6u">
-																		<input type="text" class="text" name="name" id="contact-name" placeholder="Name" />
-																	</div>
-																	<div class="6u">
-																		<input type="text" class="text" name="name" id="contact-email" placeholder="Email" />
-																	</div>
-																</div>
-																<div class="row half">
-																	<div class="12u">
-																		<textarea name="message" id="contact-message" placeholder="Message"></textarea>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="12u">
-																		<ul class="actions">
-																			<li><input type="submit" class="button button-style1" value="Send" /></li>
-																			<li><input type="reset" class="button button-style2" value="Reset" /></li>
-																		</ul>
-																	</div>
-																</div>
-															</div>
-														</form>
-													</section>
-												<!-- /Contact Form -->
+												<?php
+												if ( isset( $contact_form ) ) :
+												    include $contact_form->template_path();
+												endif;
+												?>
 
 											</div>
 											<div class="6u">
