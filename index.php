@@ -16,17 +16,17 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
 		<!--[if lte IE 8]><script src="<?php $template->url( 'js/html5shiv.js' ); ?>"></script><link rel="stylesheet" href="<?php $template->url( 'css/ie8.css' ); ?>" /><![endif]-->
 		
-		<script src="<?php $template->url( 'js/jquery.min.js' ); ?>"></script>
-		<script src="<?php $template->url( 'js/jquery.dropotron.js' ); ?>"></script>
-		<script src="<?php $template->url( 'js/config.js' ); ?>"></script>
-		<script src="<?php $template->url( 'js/skel.min.js' ); ?>"></script>
-		<script src="<?php $template->url( 'js/skel-panels.min.js' ); ?>"></script>
-	
-		<link rel="stylesheet" href="<?php $template->url( 'css/skel-noscript.css' ); ?>" />
-		<link rel="stylesheet" href="<?php $template->url( 'css/style.css' ); ?>" />
-		<link rel="stylesheet" href="<?php $template->url( 'css/style-desktop.css' ); ?>" />
+		<script>
+		var leeflets_template_path = '<?php addslashes( $template->url() ); ?>';
+		</script>
 		
 	    <?php $hook->apply( 'head' ); ?>
+	
+		<noscript>
+			<link rel="stylesheet" href="<?php $template->url( 'css/skel-noscript.css' ); ?>" />
+			<link rel="stylesheet" href="<?php $template->url( 'css/style.css' ); ?>" />
+			<link rel="stylesheet" href="<?php $template->url( 'css/style-desktop.css' ); ?>" />
+		</noscript>
 	</head>
 	<body class="homepage">
 
