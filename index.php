@@ -279,5 +279,6 @@
 			</div>
 		<!-- /Footer Wrapper -->
 
+		<?php $hook->apply( 'footer' ); ?>
 	</body>
 </html>
