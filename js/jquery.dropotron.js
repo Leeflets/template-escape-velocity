@@ -1,4 +1,4 @@
-/* dropotron v1.3 | (c) n33 | n33.co @n33co | MIT + GPLv2 */
+/* dropotron v1.3.1 | (c) n33 | n33.co @n33co | MIT + GPLv2 */
 
 (function(jQuery) {
 
@@ -83,7 +83,7 @@
 								t.trigger('doCollapse');
 						});
 						
-						var x, left, top, isTL = (menu.css('z-index') == settings.baseZIndex), oo = opener.offset(), op = opener.position(), opp = opener.parent().position(), ow = opener.outerWidth(), mw = menu.outerWidth();
+						var x, c, left, top, isTL = (menu.css('z-index') == settings.baseZIndex), oo = opener.offset(), op = opener.position(), opp = opener.parent().position(), ow = opener.outerWidth(), mw = menu.outerWidth();
 						
 						if (isTL)
 						{
@@ -93,6 +93,12 @@
 								x = oo;
 						
 							top = x.top + opener.outerHeight() + settings.globalOffsetY;
+							c = settings.alignment;
+							
+							menu
+								.removeClass('left')
+								.removeClass('right')
+								.removeClass('center');
 
 							switch (settings.alignment)
 							{
@@ -100,7 +106,10 @@
 									left = x.left - mw + ow;
 									
 									if (left < 0)
+									{
 										left = x.left;
+										c = 'left';
+									}
 										
 									break;
 									
@@ -108,9 +117,15 @@
 									left = x.left - Math.floor((mw - ow) / 2);
 
 									if (left < 0)
+									{
 										left = x.left;
+										c = 'left';
+									}
 									else if (left + mw > _window.width())
+									{
 										left = x.left - mw + ow;
+										c = 'right';
+									}
 										
 									break;
 
@@ -119,10 +134,15 @@
 									left = x.left;
 									
 									if (left + mw > _window.width())
+									{
 										left = x.left - mw + ow;
+										c = 'right';
+									}
 
 									break;
 							}
+							
+							menu.addClass(c);
 						}
 						else
 						{
